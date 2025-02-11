@@ -14,7 +14,8 @@ export const MyBooks = () => {
   const [modalSettings, setModalSettings] = useState<BookModalsEnum>(BookModalsEnum.addBook);
   const [currentBook, setCurrentBook] = useState<Book>()
   const [isOpenModal, setIsOpenModal] = useState(false)
-  const { selectedRowKeys,
+  const {
+    selectedRowKeys,
     rowSelection,
     setSelectedRowKeys,
   } = useRowSelection<Book>();
@@ -51,20 +52,18 @@ export const MyBooks = () => {
 
   return (
     <>
-      <div>
-        <HeaderMyBooks
-          handleRemoveBook={handleRemoveBook}
-          handleOpenModal={handleOpenModal}
-        />
-        <BookReference
-          dataSource={bookList}
-          columns={columns}
-          rowSelection={rowSelection}
-          rowKey="id"
-          className="book-table-container"
-          onRow={handleOnRow}
-        />
-      </div>
+      <HeaderMyBooks
+        handleRemoveBook={handleRemoveBook}
+        handleOpenModal={handleOpenModal}
+      />
+      <BookReference
+        dataSource={bookList}
+        columns={columns}
+        rowSelection={rowSelection}
+        rowKey="id"
+        className="book-table-container"
+        onRow={handleOnRow}
+      />
       {isOpenModal && (
         <ModalBooks
           modalType={modalSettings}
