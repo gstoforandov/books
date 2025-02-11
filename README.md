@@ -1,9 +1,14 @@
-download project
-open project-folder with terminal
+- Установить проект
+
+```js
+git clone https://github.com/gstoforandov/books.git
+```
+
+- Открыть папку с проектом, открыть терминал
 
 ```js
 npm install
 npm run dev
 ```
 
-address: http://localhost:5173/
+- Локальный адрес: http://localhost:5173/
