@@ -1,1 +1,1 @@
-export const YEAR_FORMAT = "YYYY"
+export const YEAR_FORMAT = 'YYYY';

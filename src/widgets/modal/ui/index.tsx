@@ -1,5 +1,5 @@
-import { Modal as AntModal } from "antd"
-import { FC, ReactNode } from "react";
+import { Modal as AntModal } from 'antd';
+import { FC, ReactNode } from 'react';
 
 interface ModalWindowProps {
   isOpen: boolean;
@@ -18,7 +18,7 @@ export const Modal: FC<ModalWindowProps> = ({
   isOpen,
   onClose,
   children,
-  width = "480px",
+  width = '480px',
   forceRender,
   className,
   title,
@@ -36,4 +36,4 @@ export const Modal: FC<ModalWindowProps> = ({
   >
     {children}
   </AntModal>
-)
+);
