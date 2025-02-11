@@ -1,6 +1,6 @@
 import { DatePicker, Form, Input } from 'antd';
 import { FC } from 'react';
-import { Fields } from '../../pages/my-book/utils/settings';
+import { Fields } from '../model/type';
 import { FieldsEnum } from './fields-enum';
 
 export const FormItem: FC<Fields> = ({
@@ -10,6 +10,7 @@ export const FormItem: FC<Fields> = ({
   placeholder,
   format,
   required,
+  picker,
 }) => {
   return (
     <Form.Item
@@ -25,7 +26,7 @@ export const FormItem: FC<Fields> = ({
     >
       {field === FieldsEnum.INPUT && <Input placeholder={placeholder} />}
       {field === FieldsEnum.DATE && (
-        <DatePicker format={format} placeholder={placeholder} />
+        <DatePicker format={format} picker={picker} placeholder={placeholder} />
       )}
     </Form.Item>
   );

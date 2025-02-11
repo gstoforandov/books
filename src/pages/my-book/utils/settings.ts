@@ -1,23 +1,18 @@
 import dayjs from 'dayjs';
 import { Dispatch, SetStateAction } from 'react';
+import { Fields } from '../../../shared/model/type';
 import { YEAR_FORMAT } from '../../../shared/utils/date-settings';
 import { FieldsEnum } from '../../../shared/utils/fields-enum';
 import { Book } from '../model/book';
 import { BookModalsEnum } from '../model/constants';
-
-export interface Fields {
-  name: string;
-  label?: string;
-  required?: boolean;
-  format?: string;
-  field: FieldsEnum;
-  placeholder?: string;
-}
+import { initialBookState } from './initialState';
 
 export type BookSettings = {
   [key in BookModalsEnum]: {
     title: string;
     buttonText: string;
+    onSubmit: (value: Book) => void;
+    initialState?: Book;
   };
 } & {
   fields: Fields[];
@@ -36,7 +31,8 @@ export const getSettings = ({
   initialState,
   onClose,
 }: GetSettings) => {
-  const settings = {
+  const initialStateForm = initialState || initialBookState;
+  const settings: BookSettings = {
     [BookModalsEnum.updateBook]: {
       title: 'Update book',
       buttonText: 'Change',
@@ -48,8 +44,8 @@ export const getSettings = ({
         onClose(false);
       },
       initialState: {
-        ...initialState,
-        year: dayjs(initialState?.year, YEAR_FORMAT),
+        ...initialStateForm,
+        year: dayjs(initialStateForm?.year, YEAR_FORMAT),
       },
     },
     [BookModalsEnum.addBook]: {
