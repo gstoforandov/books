@@ -20,6 +20,7 @@ export const getColumns: GetColumns = () => ([
     title: 'Year',
     dataIndex: 'year',
     width: 90,
+    sorter: (a, b) => a.year.localeCompare(b.year)
   },
   {
     title: 'Genre',

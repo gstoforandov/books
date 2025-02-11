@@ -8,6 +8,7 @@ import { YEAR_FORMAT } from "../../../shared/utils/date-settings";
 export interface Fields {
   name: string;
   label?: string;
+  required?: boolean;
   format?: string;
   field: FieldsEnum;
   placeholder?: string;
@@ -62,13 +63,15 @@ export const getSettings = ({
         name: 'id',
         label: 'Book ID',
         field: FieldsEnum.INPUT,
-        placeholder: 'Введите значение',
+        placeholder: 'Enter book id',
+        required: true,
       },
       {
         name: 'title',
         label: 'Book title',
         field: FieldsEnum.INPUT,
-        placeholder: 'Введите значение'
+        placeholder: 'Enter book title',
+        required: true,
       },
       {
         name: 'year',
@@ -76,19 +79,22 @@ export const getSettings = ({
         field: FieldsEnum.DATE,
         format: YEAR_FORMAT,
         picker: 'year',
-        placeholder: 'Введите дату выпуска'
+        placeholder: 'Year of the book',
+        required: true,
       },
       {
         name: 'author',
         label: 'Author',
         field: FieldsEnum.INPUT,
-        placeholder: 'Введите автора книги'
+        placeholder: 'Enter the author of the book',
+        required: true,
       },
       {
         name: 'genre',
         label: 'Genre',
         field: FieldsEnum.INPUT,
-        placeholder: 'Введите жанр книги'
+        placeholder: 'Enter the genre of the book',
+        required: true,
       },
     ],
   }

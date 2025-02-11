@@ -51,6 +51,7 @@ export const ModalBooks: FC<ModalBooksProps> = ({
         form={form}
         onFinish={settings.onSubmit}
         initialValues={settings.initialState}
+        hideRequiredMark
         layout="vertical"
       >
         {settings.fields.map((field) => (

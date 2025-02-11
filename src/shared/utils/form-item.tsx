@@ -9,12 +9,19 @@ export const FormItem: FC<Fields> = ({
   field,
   placeholder,
   format,
+  required,
 }) => {
   return (
     <Form.Item
       name={name}
       label={label}
       className="form-item-container"
+      rules={[
+        {
+          required: required,
+          message: 'Обязательное поле',
+        }
+      ]}
     >
       {(field === FieldsEnum.INPUT)
         && <Input
