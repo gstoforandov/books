@@ -1,9 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
-import { FieldsEnum } from "../../../shared/utils/fields-enum";
-import { Book } from "../model/book";
-import { BookModalsEnum } from "../model/constants";
-import dayjs from "dayjs";
-import { YEAR_FORMAT } from "../../../shared/utils/date-settings";
+import dayjs from 'dayjs';
+import { Dispatch, SetStateAction } from 'react';
+import { YEAR_FORMAT } from '../../../shared/utils/date-settings';
+import { FieldsEnum } from '../../../shared/utils/fields-enum';
+import { Book } from '../model/book';
+import { BookModalsEnum } from '../model/constants';
 
 export interface Fields {
   name: string;
@@ -41,7 +41,10 @@ export const getSettings = ({
       title: 'Update book',
       buttonText: 'Change',
       onSubmit: (value: Book) => {
-        changeBookList((prev) => [value, ...prev.filter((book) => book.id !== value.id)])
+        changeBookList((prev) => [
+          value,
+          ...prev.filter((book) => book.id !== value.id),
+        ]);
         onClose(false);
       },
       initialState: {
@@ -53,7 +56,7 @@ export const getSettings = ({
       title: 'Add book',
       buttonText: 'Add',
       onSubmit: (value: Book) => {
-        changeBookList((prev) => [value, ...prev])
+        changeBookList((prev) => [value, ...prev]);
         onClose(false);
       },
       initialState: undefined,
@@ -97,6 +100,6 @@ export const getSettings = ({
         required: true,
       },
     ],
-  }
-  return { ...settings[modalType], fields: settings.fields }
-}
+  };
+  return { ...settings[modalType], fields: settings.fields };
+};

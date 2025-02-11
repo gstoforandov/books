@@ -1,13 +1,13 @@
-import { Table, TableProps } from "antd"
-import { JSX, memo } from "react"
+import { Table, TableProps } from 'antd';
+import { JSX, memo } from 'react';
 
-export const BookReference = memo(<T,>({
+const BookTable = <T,>({
   dataSource,
   columns,
   rowSelection,
   rowKey,
   onRow,
-  className
+  className,
 }: TableProps<T>) => {
   return (
     <Table
@@ -19,5 +19,9 @@ export const BookReference = memo(<T,>({
       rowKey={rowKey}
       bordered
     />
-  )
-}) as <T>(props: TableProps<T>) => JSX.Element
+  );
+};
+
+export const BookReference = memo(BookTable) as <T>(
+  props: TableProps<T>
+) => JSX.Element;

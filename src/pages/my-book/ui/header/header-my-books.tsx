@@ -1,7 +1,7 @@
-import { Button } from "antd"
-import { BookModalsEnum } from "../../model/constants"
-import { MouseEvent, FC } from "react";
-import './style.css'
+import { Button } from 'antd';
+import { FC, MouseEvent } from 'react';
+import { BookModalsEnum } from '../../model/constants';
+import './style.css';
 
 interface HeaderProps {
   handleOpenModal: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -13,22 +13,18 @@ export const HeaderMyBooks: FC<HeaderProps> = ({
   handleRemoveBook,
 }) => {
   return (
-    <div className="header-book-container">
+    <div className='header-book-container'>
       <Button
-        type="primary"
+        type='primary'
         value={BookModalsEnum.addBook}
         onClick={handleOpenModal}
-        size="middle"
+        size='middle'
       >
         Add book
       </Button>
-      <Button
-        size="middle"
-        onClick={handleRemoveBook}
-        danger
-      >
+      <Button size='middle' onClick={handleRemoveBook} danger>
         Remove books
       </Button>
     </div>
-  )
-}
+  );
+};
