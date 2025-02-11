@@ -32,6 +32,7 @@ export const Modal: FC<ModalWindowProps> = ({
     className={className}
     title={title}
     footer={footer}
+    onCancel={onClose}
   >
     {children}
   </AntModal>

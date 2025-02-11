@@ -8,17 +8,25 @@ export const FormItem: FC<Fields> = ({
   label,
   field,
   placeholder,
+  format,
 }) => {
   return (
     <Form.Item
       name={name}
       label={label}
+      className="form-item-container"
     >
       {(field === FieldsEnum.INPUT)
-        && <Input placeholder={placeholder} />
+        && <Input
+          placeholder={placeholder}
+        />
       }
-      {field === FieldsEnum.DATE
-        && <DatePicker placeholder={placeholder} />}
+      {(field === FieldsEnum.DATE)
+        && <DatePicker
+          format={format}
+          placeholder={placeholder}
+        />
+      }
     </Form.Item>
   )
 }

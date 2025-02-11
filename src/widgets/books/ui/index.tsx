@@ -1,29 +1,23 @@
-import { FC } from "react"
-import { Book } from "../../../pages/my-book/model/book"
 import { Table, TableProps } from "antd"
+import { JSX, memo } from "react"
 
-interface BookTableProps {
-  data: Book[];
-  columns: TableProps['columns']
-  rowSelection: TableProps['rowSelection'];
-  rowKey: string;
-  onRow: TableProps['onRow'];
-}
-
-export const BookTable: FC<BookTableProps> = ({
-  data,
+export const BookReference = memo(<T,>({
+  dataSource,
   columns,
   rowSelection,
   rowKey,
   onRow,
-}) => {
+  className
+}: TableProps<T>) => {
   return (
     <Table
+      className={className}
+      onRow={onRow}
       rowSelection={rowSelection}
-      dataSource={data}
+      dataSource={dataSource}
       columns={columns}
       rowKey={rowKey}
-      onRow={onRow}
+      bordered
     />
   )
-}
+}) as <T>(props: TableProps<T>) => JSX.Element

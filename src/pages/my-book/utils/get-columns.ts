@@ -1,8 +1,10 @@
 import { TableProps } from "antd";
+import { Book } from "../model/book";
 
 // keep getColumns as function 
 // because it may need to add context menu
-export const getColumns = (): TableProps['columns'] => ([
+type GetColumns = () => TableProps<Book>['columns'];
+export const getColumns: GetColumns = () => ([
   {
     key: '1',
     title: 'Title',

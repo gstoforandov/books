@@ -1,10 +1,9 @@
 import { Button, FormInstance } from "antd";
-import useFormInstance from "antd/es/form/hooks/useFormInstance";
-import { FC, MouseEvent } from "react";
+import { FC } from "react";
 
 interface FooterProps {
   buttonText: string;
-  onClose: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClose: () => void;
   form: FormInstance;
 }
 export const Footer: FC<FooterProps> = ({
@@ -16,12 +15,15 @@ export const Footer: FC<FooterProps> = ({
     <>
       <Button
         onClick={onClose}
+        size="middle"
       >
-        Отменить
+        Cancel
       </Button>
       <Button
         htmlType="submit"
         onClick={() => form.submit()}
+        type="primary"
+        size="middle"
       >
         {buttonText}
       </Button>
