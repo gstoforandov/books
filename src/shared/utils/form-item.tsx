@@ -20,7 +20,7 @@ export const FormItem: FC<Fields> = ({
       rules={[
         {
           required: required,
-          message: 'Обязательное поле',
+          message: 'Required field',
         },
       ]}
     >
